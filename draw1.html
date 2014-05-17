@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Canvas tracker</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="_style/main.css" type="text/css" media="all" />
+
+    <!-- boilerplate-->
+    <script type="text/javascript" src="_scripts/boilerplate/jquery.1.7.js"></script>
+    <script type="text/javascript" src="_scripts/boilerplate/canvas-toBlob.js"></script>
+    <script type="text/javascript" src="_scripts/boilerplate/fileSaver.js"></script>
+
+    <!-- app -->
+    <script type="text/javascript" src="_scripts/util.js"></script>
+    <script type="text/javascript" src="_scripts/audio.js"></script>
+    <script type="text/javascript" src="_scripts/main.js"></script>
+
+
+</head>
+<body>
+
+<div id="controlbar">
+    <div id="play" onclick="playPause();"></div>
+</div>
+
+
+<div id="playercanvas">
+
+    <div id="playbar"></div>
+    <canvas id="canvas" width="400" height="60"></canvas>
+</div>
+
+<div id="status"></div>
+<div id="statusbar"></div>
+
+<div id="palette">
+    <div class="color" style="background-color: #F00; color: rgba(255,0,0,0.2)"></div>
+    <div class="color" style="background-color: #0F0; color: rgba(0,255,0,0.2)"></div>
+    <div class="color" style="background-color: #00F; color: rgba(0,0,255,0.2)"></div>
+    <div class="color" style="background-color: #FFF; color: rgba(255,255,255,0.2)"></div>
+</div>
+<div>
+    <input type="checkbox" id="snapgrid"> Snap to grid;
+
+</div>
+
+Load:<br>
+<input type="file" id="imageLoader" name="imageLoader"/>
+<br><br>
+Save:
+
+<form id="canvas-options">
+    <label>Filename: <input type="text" class="filename" id="canvas-filename" placeholder="doodle"/>.png</label>
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+</html>

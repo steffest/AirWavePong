@@ -1,0 +1,152 @@
+*, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+html,body{
+    height: 100%;
+    font-family: monospace, arial, helvatica, sans-serif;
+    font-size: 13px;
+}
+
+a:link,
+a:visited{
+    color: white;
+}
+
+body{
+    background-color: #000000;
+    color: grey;
+}
+
+.clear{
+    clear: both;
+}
+
+#dots{
+    position: absolute;
+    margin-top: -320px;
+    height: 320px;
+    width: 600px;
+}
+
+.dot{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: rgba(255,255,255,0.3);
+    position: absolute;
+    border: 1px solid #000000;
+}
+
+.dot.active{
+    background-color: white;
+}
+
+.dot:hover{
+    background-color: green;
+    cursor: pointer;
+}
+
+.color{
+    width: 50px;
+    height: 50px;
+    border: 2px solid black;
+    margin: 4px;
+}
+
+.color.active{
+    border: 2px solid white;
+}
+
+#stage{
+    width: 810px;
+    margin: auto;
+}
+
+#log,
+#info{
+    width: 600px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    text-align: center;
+}
+
+#info{
+    margin-top: 4px;
+    height: 138px;
+}
+
+#controls{
+    float: right;
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    height: 500px;
+}
+
+#sampleSelects{
+    font-size: 0.8em;
+    text-align: right;
+}
+
+
+#dotSelectors{
+    margin: 4px 0;
+}
+
+#dotSelectors div{
+   width: 20px;
+   text-align: center;
+   border: 1px solid grey;
+   float: left;
+}
+
+#dotSelectors div:hover,
+#dotSelectors div.active{
+    background-color: white;
+    color: #000000;
+    cursor: pointer;
+}
+
+#presets div{
+    border-bottom: 1px solid grey;
+    padding: 2px;
+}
+
+#presets div:hover{
+    background-color: white;
+    color: #000000;
+}
+
+#videosource div{
+    float: left;
+    width: 50px;
+    padding: 2px;
+    border: 1px solid grey;
+    text-align: center;
+}
+
+#videosource div:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+video{
+    opacity: 0;
+    display: none;
+}
+
+.color{
+    width: 16px;
+    height: 16px;
+    border: 1px solid black;
+    margin: 4px;
+    float: left;
+}
+
+.color.active{
+    border: 1px solid white;
+}

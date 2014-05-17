@@ -1,0 +1,28 @@
+#play{
+    width: 20px;
+    height: 20px;
+    background-color: #808080;
+}
+
+#playercanvas{
+    position: relative;
+}
+
+#playbar{
+    position: absolute;
+    width: 1px;
+    background-color: black;
+    height: 100%;
+}
+
+.color{
+    width: 16px;
+    height: 16px;
+    border: 1px solid silver;
+    display: inline-block;
+    margin: 1px;
+}
+
+.color.active{
+    border: 1px solid black;
+}

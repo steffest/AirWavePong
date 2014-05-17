@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Canvas Pong</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="_style/main.css" type="text/css" media="all" />
+
+    <!-- boilerplate-->
+    <script type="text/javascript" src="../_scripts/boilerplate/jquery.1.7.js"></script>
+    <script type="text/javascript" src="../_scripts/boilerplate/timbre.dev.js"></script>
+    <script type="text/javascript" src="../_scripts/boilerplate/MoogFF.js"></script>
+    <script type="text/javascript" src="../_scripts/boilerplate/cosc.js"></script>
+
+    <!-- app -->
+    <script type="text/javascript" src="../_scripts/util.js"></script>
+    <script type="text/javascript" src="../_scripts/video.js"></script>
+    <script type="text/javascript" src="../_scripts/audio.js"></script>
+    <script type="text/javascript" src="_scripts/main.js"></script>
+
+
+</head>
+<body>
+
+<div id="stage">
+    <div id="controls">
+        <a href="javascript:addDot()">Add</a> - <a href="javascript:removeDot()">Remove</a>
+        <div id="dotSelectors"></div>
+        <div class="clear"></div>
+        Speed: <br>
+        <input type="range" id="speedX" max="100" min="0" value="12">
+        <input type="range" id="speedY" max="100" min="0" value="8">
+        Samples: <br>
+        <div id="sampleSelects">
+
+        </div>
+        <br>
+        <input type="checkbox" id="playChord"> Play Cord notes<br>
+        <input type="checkbox" id="useColor"> Use Color to Sample
+        <input type="checkbox" id="useBars"> 4 bars
+        <br><br>
+        Presets:
+        <div id="presets">
+            <div id="bars4">4bars</div>
+            <div id="square">square</div>
+            <div id="beat1">steady beat 1</div>
+            <div id="beat2">steady beat 2</div>
+            <div id="beat3">steady beat 3</div>
+        </div><br>
+        Image Source:<br>
+        <div id="videosource">
+            <div>img</div><div>vid</div><div>cam</div>
+        </div><br>
+        Draw Colors
+
+        <div id="palette">
+            <div class="color" style="background-color: #F00; color: rgba(255,0,0,0.1)"></div>
+            <div class="color" style="background-color: #0F0; color: rgba(0,255,0,0.1)"></div>
+            <div class="color" style="background-color: #00F; color: rgba(0,0,255,0.1)"></div>
+            <div class="color" style="background-color: #FFF; color: rgba(255,255,255,0.1)"></div>
+            <div class="color" id="draw_block" style="background-color: #000; color: #000"></div>
+        </div>
+
+    </div>
+    <div>
+        <canvas id="canvas"></canvas>
+        <div id="dots">
+            <div id="dot1" class="dot active"></div>
+        </div>
+        <div id="log"></div>
+        <div id="info">
+            This is a small "Musical Pong" demo. <br>
+            (only supports Chrome and Safari for now)<br><br>
+            If you <a href="javascript:stop()">stop</a> the dot, <br>
+            you can drag it around or throw it away to start moving again.<br>
+            <br>
+            This is a part of the "Airwave Pong" project - by <a href="http://www.stef.be">Steffest</a>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select MIDI Out</title>
+
+    <style type="text/css">
+        .hidden {
+            visibility: hidden;
+            width: 0px;
+            height: 0px;
+            margin: 0px;
+            padding: 0px;
+            border-style: none;
+            border-width: 0px;
+            max-width: 0px;
+            max-height: 0px;
+        }
+    </style>
+
+
+    <style type="text/css">
+        div.piano {
+            font-size: 1.2em;
+            overflow: hidden;
+            display: block;
+            width: 42em;
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+            margin-left: 0.5em;
+        }
+        .piano span {
+            color: #808080;
+            background-color: #f0f0f0;
+            padding: 0.4em;
+            margin: 0.1em;
+            border: 0.3em double;
+            display: inline-block;
+            width: 2em;
+            height: 2em;
+            vertical-align: top;
+        }
+        .piano span.blank {
+            color: #f0f0f0;
+            background-color: #fff;
+        }
+        .piano span.on {
+            background-color: #000;
+        }
+        object.hidden {
+            visibility: hidden;
+            width: 0px;
+            height: 0px;
+            margin: 0px;
+            padding: 0px;
+            border-style: none;
+            border-width: 0px;
+            max-width: 0px;
+            max-height: 0px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<h1>Select MIDI Out</h1>
+
+<object id="Jazz1" classid="CLSID:1ACE1618-1C7D-4561-AEE1-34842AA85E90" class="hidden">
+    <object id="Jazz2" type="audio/x-jazz" class="hidden">
+        <p style="visibility:visible;">This page requires <a href=http://jazz-soft.net>Jazz-Plugin</a> ...</p>
+    </object>
+</object>
+
+
+
+
+
+<script><!--
+var Jazz = document.getElementById("Jazz1"); if(!Jazz || !Jazz.isJazz) Jazz = document.getElementById("Jazz2");
+var midi={65:58,90:59,88:60,68:61,67:62,70:63,86:64,66:65,72:66,78:67,74:68,77:69,75:70,188:71,190:72,186:73,59:73,191:74,222:75};
+document.onkeydown=function(e){
+    var e=window.event || e;
+    var m=midi[e.keyCode];
+    if(m){
+        var k=document.getElementById(m);
+        if(k && k.className!="on"){
+            if(Jazz.isJazz) Jazz.MidiOut(0x90,m,0x7f);
+            k.className="on";
+        }
+        return false;
+    }
+}
+document.onkeyup=function(e){
+    var e=window.event || e;
+    var m=midi[e.keyCode];
+    if(m){
+        var k=document.getElementById(m);
+        if(k && k.className!=""){
+            if(Jazz.isJazz) Jazz.MidiOut(0x80,m,0);
+            k.className="";
+        }
+        return false;
+    }
+}
+window.onload=function(){
+    if(Jazz.isJazz) Jazz.MidiOut(0x80,0,0);
+}
+--></script>
+
+<div class="piano">
+    <span id=58>A</span><span class=blank>S</span><span id=61>D</span><span id=63>F</span><span class=blank>G</span><span id=66>H</span><span id=68>J</span><span id=70>K</span><span class=blank>L</span><span id=73>:<br>;</span><span id=75>"<br>'</span>
+</div>
+<div class="piano" style="margin-left: 2.3em;">
+    <span id=59>Z</span><span id=60>X</span><span id=62>C</span><span id=64>V</span><span id=65>B</span><span id=67>N</span><span id=69>M</span><span id=71><<br>,</span><span id=72>><br>.</span><span id=74>?<br>/</span>
+</div>
+
+
+
+<div id=selectmididiv class="hidden"><p>MIDI Out: <select id=selectmidi onchange='changemidi();'></select></p></div>
+<p><button onmousedown='play();' onmouseup='stop();'> Press to play... </button></p>
+
+<script><!--
+
+function play(){
+    if(Jazz.isJazz){
+        Jazz.MidiOut(0x90,60,100);
+        Jazz.MidiOut(0x90,64,100);
+        Jazz.MidiOut(0x90,67,100);
+    }
+}
+function stop(){
+    if(Jazz.isJazz){
+        Jazz.MidiOut(0x80,60,0);
+        Jazz.MidiOut(0x80,64,0);
+        Jazz.MidiOut(0x80,67,0);
+    }
+}
+function changemidi(){
+    Jazz.MidiOutOpen(select.options[select.selectedIndex].value);
+}
+var select=document.getElementById('selectmidi');
+try{
+    var list=Jazz.MidiOutList();
+    for(var i in list){
+        select[i]=new Option(list[i],list[i],i==0,i==0);
+    }
+    document.getElementById('selectmididiv').className='';
+}
+catch(err){}
+--></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Cam tracker</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="_style/main.css" type="text/css" media="all" />
+
+    <!-- boilerplate-->
+    <script type="text/javascript" src="../_scripts/boilerplate/jquery.1.7.js"></script>
+    <script type="text/javascript" src="../_scripts/util.js"></script>
+
+    <!-- app -->
+    <script type="text/javascript" src="_scripts/audio.js"></script>
+    <script type="text/javascript" src="_scripts/video.js"></script>
+    <script type="text/javascript" src="_scripts/midi.js"></script>
+    <script type="text/javascript" src="_scripts/color.js"></script>
+
+    <script type="text/javascript" src="_scripts/main.js"></script>
+
+
+</head>
+<body>
+    <div id="stage">
+        <canvas id="buffer" width="512" height="300"></canvas>
+        <canvas id="output" width="512" height="300"></canvas><br/>
+        <div id="controls">
+            <div id="trackingColorBar">
+
+            </div>
+            <div class="clear"></div>
+            <a href="javascript:addColor()">Add Tracking Color</a>
+            <br>
+            Parameters:<br>
+            ColorMatch tresshold: <input type="range" id="colormatchtresshold" min="0" max="100" value="50">
+            <br>
+            <input type="checkbox" id="trackmovement"> Horizontal movement to scale on Vertical position <input type="range" id="trackMovementY" min="0" max="300" value="100">
+            <br>
+            <input type="checkbox" id="showGrid"> Show grid <br>
+            <input type="checkbox" id="useMidi"> Use midi Out
+            <div id="midipanel"></div>
+            <div id="midicontrols">
+                Octave <input type="range" id="midiOctave" min="1" max="8" value="4">
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+</body>
+</html>

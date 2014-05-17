@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Canvas tracker</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="_style/main.css" type="text/css" media="all" />
+
+    <!-- boilerplate-->
+    <script type="text/javascript" src="../_scripts/boilerplate/jquery.1.7.js"></script>
+
+    <!-- app -->
+    <script type="text/javascript" src="../_scripts/util.js"></script>
+    <script type="text/javascript" src="_scripts/color.js"></script>
+    <script type="text/javascript" src="_scripts/main.js"></script>
+
+
+</head>
+<body>
+<div id="stage">
+    <div id="controls">
+        <a href="javascript:stop()">Pause/Play audio</a>
+        <br><br>
+
+        <div id="sliders"> </div>
+        <br><br>
+        <a href="javascript:toggleHeathMap()">Toggle Heath Map</a>
+    </div>
+    <div>
+        <canvas id="heathmap" width="400" height="700"></canvas>
+        <canvas id="canvas" width="400" height="700"></canvas>
+        <div id="info">
+            <div id="log">
+                ...
+            </div>
+            Move your mouse over the image to mix the sounds.
+            <br>
+            <br>
+            This is a part of the "Airwave Pong" project - by <a href="http://www.stef.be">Steffest</a>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
